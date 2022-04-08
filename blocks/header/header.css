@@ -1,0 +1,6 @@
+.header {
+  margin: 45px auto 0;
+  width: 880px;
+  border-bottom: 1px #545454 solid;
+  overflow: auto;
+}
