@@ -1,0 +1,7 @@
+.profile__info {
+  color: white;
+  display: grid;
+  column-gap: 18px;
+  row-gap: 16px;
+  grid-template-columns: repeat(2, max-content);
+}
