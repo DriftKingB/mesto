@@ -8,3 +8,9 @@
   grid-column: 1 / 3;
   grid-row: 2;
 }
+
+@media (max-width: 1280px) {
+  .profile__subline {
+    font-size: calc((100vw + 3040px)/240);
+  }
+}

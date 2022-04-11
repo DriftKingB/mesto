@@ -5,3 +5,18 @@
   grid-template-columns: repeat(2, max-content) auto max-content;
   align-items: center;
 }
+
+@media (max-width: 1280px) {
+  .profile {
+    width: calc((29900vw + 39680px)/480);
+  }
+}
+
+@media (max-width: 767px) {
+  .profile {
+    margin-top: 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
