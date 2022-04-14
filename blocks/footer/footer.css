@@ -1,11 +1,13 @@
 .footer {
   width: 282px;
-  margin: 66px auto 60px 200px;
+  margin: 66px auto 0 200px;
+  padding-bottom: 60px;
   box-sizing: border-box;
 }
 
 @media (max-width: 1280px) {
   .footer {
-    margin: calc((300vw + 6720px)/160) auto calc((100vw + 1120px)/40) calc((18100vw - 39680px)/960);
+    margin: calc((300vw + 6720px)/160) auto 0 calc((18100vw - 39680px)/960);
+    padding-bottom: calc((100vw + 1120px)/40);
   }
 }

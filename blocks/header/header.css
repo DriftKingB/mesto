@@ -1,7 +1,7 @@
 .header {
   margin: 45px auto 0;
   width: 880px;
-  border-bottom: 1px #545454 solid;
+  border-bottom: 1px rgba(84, 84, 84, 0.7) solid;
   overflow: auto;
 }
 

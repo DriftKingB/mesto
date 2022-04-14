@@ -1,0 +1,15 @@
+.popup {
+  width: 100vw;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+ /* background-color: rgba(255, 255, 255, 0.5); */
+  z-index: 1;
+}
+
+@media (min-width: 1280px) {
+  .popup {
+    margin-left: calc((100vw - 1280px)/-2);
+  }
+}
