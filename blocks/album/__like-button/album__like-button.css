@@ -1,6 +1,17 @@
 .album__like-button {
   width: 22px;
   height: 19px;
-  background-image: url(../../../images/album/album__like-button.svg);
+  background-image: url(../../../images/album/album__like-button_disabled.svg);
   align-self: center;
+  appearance: none;
+  transition: opacity 0.3s;
+}
+
+.album__like-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.album__like-button:checked {
+  background-image: url(../../../images/album/album__like-button_active.svg);
 }

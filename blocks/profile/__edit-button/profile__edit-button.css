@@ -9,6 +9,7 @@
   align-self: center;
   border: 1px white solid;
   grid-column: 2;
+  transition: opacity 0.3s;
 }
 
 @media (max-width: 768px) {
@@ -16,4 +17,9 @@
     width: calc((300vw + 3072px)/224);
     background-size: 7.5px 7.5px;
   }
+}
+
+.profile__edit-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }

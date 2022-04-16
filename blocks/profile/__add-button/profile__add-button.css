@@ -8,6 +8,7 @@
   background-position: center;
   background-repeat: no-repeat;
   grid-column: 4;
+  transition: opacity 0.3s;
 }
 
 @media (max-width: 1280px) and (min-width: 768px) {
@@ -21,4 +22,9 @@
   .profile__add-button {
     width: calc((-3300vw + 42144px)/112);
   }
+}
+
+.profile__add-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }
