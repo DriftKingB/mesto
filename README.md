@@ -11,4 +11,4 @@
 
 Работа проверена на кроссбраузерность в: Google Chrome, Mozila Firefox, Microsoft Edge, а также Yandex Browser.
 
-Проект на Github pages: https://driftkingb.github.io/russian-travel/index.html
+Проект на Github pages: <https://driftkingb.github.io/mesto/index.html>
