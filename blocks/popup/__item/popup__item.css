@@ -12,7 +12,7 @@
 }
 
 .popup__item:focus {
-  outline-width: 0;
+  outline: none;
 }
 
 .popup__item::placeholder {

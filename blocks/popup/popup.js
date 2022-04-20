@@ -24,7 +24,16 @@ function formSubmitHandler (event) {
   popupClose();
 }
 
+function popupCloseByEnter (event) {
+  if ((window.getComputedStyle(popup)['display'] !== 'none') && (event.keyCode === 13)) {
+    saveButton.click();
+  } else {
+    return
+  }
+}
+
 editButton.addEventListener("click", function () { popup.classList.add('popup_active'); popupRender() });
 closeButton.addEventListener("click", popupClose);
 saveButton.addEventListener("click", formSubmitHandler);
+document.addEventListener("keyup", popupCloseByEnter);
 
