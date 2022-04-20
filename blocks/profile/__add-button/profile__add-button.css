@@ -9,22 +9,22 @@
   background-repeat: no-repeat;
   grid-column: 4;
   transition: opacity 0.3s;
+  cursor: pointer;
 }
 
 @media (max-width: 1280px) and (min-width: 768px) {
   .profile__add-button {
-    width: calc((3500vw - 6400px)/256);
-    height: calc((500vw + 6400px)/256);
+    width: calc((875vw - 1600px)/64);
+    height: calc((125vw + 1600px)/64);
   }
 }
 
 @media (max-width: 767px) {
   .profile__add-button {
-    width: calc((-3300vw + 42144px)/112);
+    width: calc((-825vw + 10536px)/28);
   }
 }
 
 .profile__add-button:hover {
-  cursor: pointer;
   opacity: 0.6;
 }

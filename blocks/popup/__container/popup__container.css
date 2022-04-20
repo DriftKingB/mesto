@@ -6,8 +6,19 @@
   top: calc(50vh - 165px);
   left: calc(50vw - 215px);
   border-radius: 10px;
+  padding: 34px 36px 37px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding-left: 36px;
-  box-sizing: border-box;
+  align-items: center;
+}
+
+@media (max-width: 1280px) {
+  .popup__container {
+    height: calc((5vw + 1916px)/6);
+    width: calc((185vw + 2792px)/12);
+    top: calc((600vh - 5vw - 1916px)/12);
+    left: calc((1015vw - 2792px)/24);
+    padding: calc((15vw + 352px)/16) calc((35vw + 416px)/24) calc((5vw + 84px)/4);
+  }
 }

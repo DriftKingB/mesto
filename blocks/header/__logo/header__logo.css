@@ -16,6 +16,6 @@
 
 @media (max-width: 768px) {
   .header__logo {
-    margin-left: calc((-2700vw + 20736px)/448);
+    margin-left: calc((-675vw + 5184px)/112);
   }
 }

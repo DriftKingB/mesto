@@ -9,19 +9,19 @@
 </head>
 <body class="root">
 
-  <section class="popup">
+  <div class="popup">
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
       <fieldset class="popup__input-container">
-        <input class="popup__item" type="text" placeholder="Введите имя пользователя" required>
-        <input class="popup__item" type="text" placeholder="Введите статус">
+        <input class="popup__item" type="text" placeholder="Имя" required>
+        <input class="popup__item" type="text" placeholder="О себе">
       </fieldset>
       <fieldset class="popup__handlers">
         <input class="popup__save-button" type="submit" value="Сохранить">
       </fieldset>
       <div class="popup__close-button"></div>
     </div>
-  </section>
+  </div>
 
   <header class="header">
     <div class="header__logo"></div>
@@ -32,7 +32,8 @@
     <div class="profile__info">
       <h2 class="profile__name">Жак-Ив Кусто</h2>
       <p class="profile__subline">Исследователь океана</p>
-      <div class="profile__edit-button"></div>
+      <div class="profile__edit-button">
+      </div>
     </div>
     <div class="profile__add-button"></div>
   </section>
@@ -88,7 +89,7 @@
         <img class="album__image" src="./images/album/album__image1.jpg" alt="">
       </div>
       <div class="album__tab">
-        <h2 class="album__title">Карачаево-Чиж</h2>
+        <h2 class="album__title">Карачаево-Черкессово</h2>
         <input class="album__like-button" type="checkbox" value="liked">
       </div>
     </div>
@@ -97,5 +98,8 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
+
+  <script src="./blocks/popup/popup.js"></script>
+
 </body>
 </html>

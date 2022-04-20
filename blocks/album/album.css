@@ -9,7 +9,7 @@
 
 @media (max-width: 1280px) {
   .album {
-    width: calc((29900vw + 39680px)/480);
-    margin-top: calc((700vw + 15040px)/480);
+    width: calc((1495vw + 1984px)/24);
+    margin-top: calc((35vw + 752px)/24);
   }
 }

@@ -8,7 +8,7 @@
 
 @media (max-width: 1280px) {
   .profile {
-    width: calc((29900vw + 39680px)/480);
+    width: calc((1495vw + 1984px)/24);
   }
 }
 

@@ -1,13 +1,13 @@
 .popup__item {
   margin: 0;
   padding: 0;
-  width: 358px;
   border: 0;
+  width: 100%;
+  padding-bottom: 13px;
   border-bottom: 1px rgba(0, 0, 0, 0.2) solid;
   font-size: 14px;
   line-height: 1.21;
-  font-weight: normal;
-  margin-bottom: 13px;
+  font-weight: 400px;
   caret-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -19,4 +19,8 @@
   font-size: 14px;
   line-height: 1.21;
   font-weight: normal;
+}
+
+.popup__item:not(:last-of-type) {
+  margin-bottom: 30px;
 }
