@@ -1,4 +1,6 @@
 .profile__add-button {
+  padding: 0;
+  background-color: transparent;
   width: 150px;
   height: 50px;
   box-sizing: border-box;

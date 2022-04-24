@@ -13,93 +13,92 @@
     <div class="header__logo"></div>
   </header>
 
-  <section class="popup">
-    <div class="popup__container">
-      <h2 class="popup__title">Редактировать профиль</h2>
-      <fieldset class="popup__input-container">
-        <input class="popup__item" type="text" placeholder="Имя" required>
-        <input class="popup__item" type="text" placeholder="О себе">
-      </fieldset>
-      <fieldset class="popup__handlers">
-        <input class="popup__save-button" type="submit" value="Сохранить">
-      </fieldset>
-      <div class="popup__close-button"></div>
-    </div>
-  </section>
-
   <section class="profile">
     <div class="profile__avatar"></div>
     <div class="profile__info">
       <h1 class="profile__name">Жак-Ив Кусто</h1>
       <p class="profile__subline">Исследователь океана</p>
-      <div class="profile__edit-button">
-      </div>
+      <button class="profile__edit-button" type="button"></button>
     </div>
-    <div class="profile__add-button"></div>
+    <button class="profile__add-button" type="button"></button>
   </section>
 
   <section class="album">
-    <div class="album__element">
+    <article class="album__element">
       <div class="album__image-container">
-        <img class="album__image" src="./images/album/album__image1.jpg" alt="">
+        <img class="album__image" src="./images/album/album__image1.jpg" alt="Сентинский Храм">
       </div>
       <div class="album__tab">
         <h2 class="album__title">Карачаевск</h2>
-        <input class="album__like-button" type="checkbox" value="liked">
+        <button class="album__like-button" type="button"></button>
       </div>
-    </div>
-    <div class="album__element">
+    </article>
+    <article class="album__element">
       <div class="album__image-container">
-        <img class="album__image" src="./images/album/album__image2.jpg" alt="">
+        <img class="album__image" src="./images/album/album__image2.jpg" alt="Гора на горизонте">
       </div>
       <div class="album__tab">
         <h2 class="album__title">Гора Эльбрус</h2>
-        <input class="album__like-button" type="checkbox" value="liked">
+        <button class="album__like-button" type="button"></button>
       </div>
-    </div>
-    <div class="album__element">
+    </article>
+    <article class="album__element">
       <div class="album__image-container">
-        <img class="album__image" src="./images/album/album__image3.jpg" alt="">
+        <img class="album__image" src="./images/album/album__image3.jpg" alt="Горный массив">
       </div>
       <div class="album__tab">
         <h2 class="album__title">Домбай</h2>
-        <input class="album__like-button" type="checkbox" value="liked">
+        <button class="album__like-button" type="button"></button>
       </div>
-    </div>
-    <div class="album__element">
+    </article>
+    <article class="album__element">
       <div class="album__image-container">
-        <img class="album__image" src="./images/album/album__image2.jpg" alt="">
+        <img class="album__image" src="./images/album/album__image2.jpg" alt="Гора на горизонте">
       </div>
       <div class="album__tab">
         <h2 class="album__title">Гора Эльбрус</h2>
-        <input class="album__like-button" type="checkbox" value="liked">
+        <button class="album__like-button" type="button"></button>
       </div>
-    </div>
-    <div class="album__element">
+    </article>
+    <article class="album__element">
       <div class="album__image-container">
-        <img class="album__image" src="./images/album/album__image3.jpg" alt="">
+        <img class="album__image" src="./images/album/album__image3.jpg" alt="Горный массив">
       </div>
       <div class="album__tab">
         <h2 class="album__title">Домбай</h2>
-        <input class="album__like-button" type="checkbox" value="liked">
+        <button class="album__like-button" type="button"></button>
       </div>
-    </div>
-    <div class="album__element">
+    </article>
+    <article class="album__element">
       <div class="album__image-container">
-        <img class="album__image" src="./images/album/album__image1.jpg" alt="">
+        <img class="album__image" src="./images/album/album__image1.jpg" alt="Сентинский Храм">
       </div>
       <div class="album__tab">
-        <h2 class="album__title">Карачаево-Черкессово</h2>
-        <input class="album__like-button" type="checkbox" value="liked">
+        <h2 class="album__title">Карачаево-Черкесия</h2>
+        <button class="album__like-button" type="button"></button>
       </div>
-    </div>
+    </article>
   </section>
 
   <footer class="footer">
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
 
-  <script src="./blocks/popup/popup.js"></script>
+  <section class="popup">
+    <form class="popup__container">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <fieldset class="popup__input-container">
+        <input class="popup__input popup__input_type_name" type="text" placeholder="Имя" required>
+        <input class="popup__input popup__input_type_about" type="text" placeholder="О себе">
+      </fieldset>
+      <fieldset class="popup__handlers">
+        <input class="popup__submit-button" type="submit" value="Сохранить">
+      </fieldset>
+      <button class="popup__close-button" type="button"></button>
+    </form>
+  </section>
+
+  <script src="./scripts/popup.js"></script>
 
 </body>
 </html>

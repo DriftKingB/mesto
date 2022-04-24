@@ -1,4 +1,4 @@
-.popup__item {
+.popup__input {
   margin: 0;
   padding: 0;
   border: 0;
@@ -11,16 +11,13 @@
   caret-color: rgba(0, 0, 0, 0.7);
 }
 
-.popup__item:focus {
+.popup__input:focus {
   outline: none;
 }
 
-.popup__item::placeholder {
+.popup__input::placeholder {
   font-size: 14px;
   line-height: 1.21;
   font-weight: normal;
 }
 
-.popup__item:not(:last-of-type) {
-  margin-bottom: 30px;
-}
