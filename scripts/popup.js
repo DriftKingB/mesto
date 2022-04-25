@@ -1,8 +1,8 @@
 const popup = document.querySelector('.popup'),
-      profilePopupInputName = document.querySelector('.popup__input_type_name'),
-      profilePopupInputAbout = document.querySelector('.popup__input_type_about'),
-      profilePopupCloseButton = document.querySelector('.popup__close-button'),
-      profilePopupSubmitButton = document.querySelector('.popup__submit-button');
+      profilePopupForm = document.querySelector('.popup__container'),
+      profilePopupInputName = popup.querySelector('.popup__input_type_name'),
+      profilePopupInputAbout = popup.querySelector('.popup__input_type_about'),
+      profilePopupCloseButton = popup.querySelector('.popup__close-button');
 
 const profileName = document.querySelector('.profile__name'),
       profileSubline = document.querySelector('.profile__subline'),
@@ -39,11 +39,11 @@ profileEditButton.addEventListener('click', openProfilePopup);
 
 profilePopupCloseButton.addEventListener('click', closeProfilePopup);
 
-profilePopupSubmitButton.addEventListener('click', handleProfileFormSubmit);
+profilePopupForm.addEventListener('submit', handleProfileFormSubmit);
 
 for (let i = 0; i < albumLikeButtons.length; i++) {
-  albumLikeButtons[i].addEventListener('click', function () {
-    albumLikeButtons[i].classList.toggle('album__like-button_active')
+  albumLikeButtons[i].addEventListener('click', function (evt) {
+    evt.target.classList.toggle('album__like-button_active');
   });
 }
 
