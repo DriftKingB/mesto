@@ -24,67 +24,13 @@
   </section>
 
   <section class="album">
-    <article class="album__element">
-      <div class="album__image-container">
-        <img class="album__image" src="./images/album/album__image1.jpg" alt="Сентинский Храм">
-      </div>
-      <div class="album__tab">
-        <h2 class="album__title">Карачаевск</h2>
-        <button class="album__like-button" type="button"></button>
-      </div>
-    </article>
-    <article class="album__element">
-      <div class="album__image-container">
-        <img class="album__image" src="./images/album/album__image2.jpg" alt="Гора на горизонте">
-      </div>
-      <div class="album__tab">
-        <h2 class="album__title">Гора Эльбрус</h2>
-        <button class="album__like-button" type="button"></button>
-      </div>
-    </article>
-    <article class="album__element">
-      <div class="album__image-container">
-        <img class="album__image" src="./images/album/album__image3.jpg" alt="Горный массив">
-      </div>
-      <div class="album__tab">
-        <h2 class="album__title">Домбай</h2>
-        <button class="album__like-button" type="button"></button>
-      </div>
-    </article>
-    <article class="album__element">
-      <div class="album__image-container">
-        <img class="album__image" src="./images/album/album__image2.jpg" alt="Гора на горизонте">
-      </div>
-      <div class="album__tab">
-        <h2 class="album__title">Гора Эльбрус</h2>
-        <button class="album__like-button" type="button"></button>
-      </div>
-    </article>
-    <article class="album__element">
-      <div class="album__image-container">
-        <img class="album__image" src="./images/album/album__image3.jpg" alt="Горный массив">
-      </div>
-      <div class="album__tab">
-        <h2 class="album__title">Домбай</h2>
-        <button class="album__like-button" type="button"></button>
-      </div>
-    </article>
-    <article class="album__element">
-      <div class="album__image-container">
-        <img class="album__image" src="./images/album/album__image1.jpg" alt="Сентинский Храм">
-      </div>
-      <div class="album__tab">
-        <h2 class="album__title">Карачаево-Черкесия</h2>
-        <button class="album__like-button" type="button"></button>
-      </div>
-    </article>
   </section>
 
   <footer class="footer">
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
 
-  <section class="popup">
+  <section class="popup popup_type_profile-edit">
     <form class="popup__container" name="profile-form">
       <h2 class="popup__title">Редактировать профиль</h2>
       <fieldset class="popup__input-container">
@@ -97,6 +43,41 @@
       <button class="popup__close-button" type="button"></button>
     </form>
   </section>
+
+  <section class="popup popup_type_card-add">
+    <form class="popup__container" name="profile-form">
+      <h2 class="popup__title">Новое место</h2>
+      <fieldset class="popup__input-container">
+        <input class="popup__input popup__input_type_name" type="text" placeholder="Название" required>
+        <input class="popup__input popup__input_type_about" type="text" placeholder="Ссылка на картинку" required>
+      </fieldset>
+      <fieldset class="popup__handlers">
+        <button class="popup__submit-button">Создать</button>
+      </fieldset>
+      <button class="popup__close-button" type="button"></button>
+    </form>
+  </section>
+
+  <section class="popup popup_type_image-view">
+    <div class="popup__image-container">
+      <img class="popup__image" src="" alt="">
+      <button class="popup__close-button" type="button"></button>
+      <p class="popup__image-title"></p>
+    </div>
+  </section>
+
+  <template id="card-template">
+    <article class="album__card">
+      <div class="album__image-container">
+        <img class="album__image">
+      </div>
+      <div class="album__tab">
+        <h2 class="album__title"></h2>
+        <button class="album__like-button" type="button"></button>
+      </div>
+      <button class="album__delete-button"></button>
+    </article>
+  </template>
 
   <script src="./scripts/popup.js"></script>
 

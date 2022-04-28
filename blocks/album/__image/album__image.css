@@ -1,4 +1,6 @@
 .album__image {
-  width: 100%;
   position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
