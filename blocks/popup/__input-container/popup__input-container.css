@@ -1,13 +1,9 @@
 .popup__input-container {
   padding: 0;
   margin: 0;
-  margin-top: 48px;
   border: none;
   color: #000;
+  width: 100%;
 }
 
-@media (max-width: 1280px) {
-  .popup__input-container {
-    margin-top: calc((-45vw + 1344px)/16);
-  }
-}
+
