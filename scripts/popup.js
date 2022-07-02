@@ -94,17 +94,20 @@ function closePopup (popup) {
   document.removeEventListener('keydown', closeByEscape);
 }
 
-function renderProflePopup () {
-  const inputList = Array.from(profilePopup.querySelectorAll('.popup__input'));
-  const buttonElement = profilePopup.querySelector(settings.submitButtonSelector);
-
-  profilePopupInputName.value = profileName.textContent;
-  profilePopupInputAbout.value = profileSubline.textContent;
+function resetValidation (popup) {
+  const inputList = Array.from(popup.querySelectorAll('.popup__input'));
+  const buttonElement = popup.querySelector(settings.submitButtonSelector);
 
   inputList.forEach(input => {
-    hideInputError(profilePopup, input, settings);
+    hideInputError(popup, input, settings);
   })
   toggleButtonState(inputList, buttonElement, settings);
+}
+
+function renderProflePopup () {
+  resetValidation(profilePopup);
+  profilePopupInputName.value = profileName.textContent;
+  profilePopupInputAbout.value = profileSubline.textContent;
 }
 
 function displayProfilePopup () {
@@ -113,16 +116,8 @@ function displayProfilePopup () {
 }
 
 function renderCardPopup () {
-  const inputList = Array.from(cardPopup.querySelectorAll('.popup__input'));
-  const buttonElement = cardPopup.querySelector(settings.submitButtonSelector);
-
-  inputList.forEach(input => {
-    hideInputError(cardPopup, input, settings);
-  })
-
   cardPopupForm.reset();
-
-  toggleButtonState(inputList, buttonElement, settings);
+  resetValidation(cardPopup);
 }
 
 function displayCardPopup () {
@@ -179,8 +174,8 @@ popupList.forEach(popup => {
 })
 
 function closeByEscape (evt) {
-  const activePopup = document.querySelector('.popup_active');
   if (evt.key === 'Escape') {
+    const activePopup = document.querySelector('.popup_active');
     closePopup(activePopup);
   }
 }
