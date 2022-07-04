@@ -31,14 +31,7 @@ const settings = {
   errorClass: '.popup__input-error_type_'
 };
 
-const defaultCards = {
-  'Архыз': 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-  'Челябинская область': 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-  'Иваново': 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
-  'Камчатка': 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-  'Холмогорский район': 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-  'Байкал': 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-};
+
 
 
 function loadDefaultCards (cardObject) {
