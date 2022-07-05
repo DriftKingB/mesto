@@ -79,7 +79,7 @@ export function openPopup (popup) {
   document.addEventListener('keydown', closeByEscape);
 }
 
-export function closePopup (popup) {
+function closePopup (popup) {
   popup.classList.remove('popup_active');
 
   document.removeEventListener('keydown', closeByEscape);
@@ -196,7 +196,7 @@ function handleCardFormSubmit (evt) {
 }) ();
 
 
-export function closeByEscape (evt) {
+function closeByEscape (evt) {
   if (evt.key === 'Escape') {
     const activePopup = document.querySelector('.popup_active');
     closePopup(activePopup);
