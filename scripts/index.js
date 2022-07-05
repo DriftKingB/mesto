@@ -73,13 +73,13 @@ loadDefaultCards(defaultCards);
 
 
 
-function openPopup (popup) {
+export function openPopup (popup) {
   popup.classList.add('popup_active');
 
   document.addEventListener('keydown', closeByEscape);
 }
 
-function closePopup (popup) {
+export function closePopup (popup) {
   popup.classList.remove('popup_active');
 
   document.removeEventListener('keydown', closeByEscape);
@@ -196,7 +196,7 @@ function handleCardFormSubmit (evt) {
 }) ();
 
 
-function closeByEscape (evt) {
+export function closeByEscape (evt) {
   if (evt.key === 'Escape') {
     const activePopup = document.querySelector('.popup_active');
     closePopup(activePopup);

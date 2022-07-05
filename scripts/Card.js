@@ -1,3 +1,5 @@
+import { openPopup } from "./index.js";
+
 export class Card {
   constructor(cardTitle, cardImageLink, templateSelector) {
     this._cardTitle = cardTitle;
@@ -48,12 +50,6 @@ export class Card {
     return this._element;
   }
 
-  _openImagePopup () {
-    this._imagePopupElement.classList.add('popup_active');
-
-    document.addEventListener('keydown', closeByEscape);
-  }
-
   _renderImagePopup () {
     const imagePopupContent = this._imagePopupElement.querySelector('.popup__image');
     const imagePopupContentTitle = this._imagePopupElement.querySelector('.popup__image-title');
@@ -65,22 +61,7 @@ export class Card {
 
   _displayImagePopup () {
     this._renderImagePopup();
-    this._openImagePopup();
-  }
-}
-
-
-
-function closePopup (popup) {
-  popup.classList.remove('popup_active');
-
-  document.removeEventListener('keydown', closeByEscape);
-}
-
-function closeByEscape (evt) {
-  if (evt.key === 'Escape') {
-    const activePopup = document.querySelector('.popup_active');
-    closePopup(activePopup);
+    openPopup(this._imagePopupElement);
   }
 }
 
