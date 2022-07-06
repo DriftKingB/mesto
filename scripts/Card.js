@@ -1,11 +1,9 @@
-import { openPopup } from "./index.js";
-
 export class Card {
-  constructor(cardTitle, cardImageLink, templateSelector) {
+  constructor(cardTitle, cardImageLink, templateSelector, handleCardClick) {
     this._cardTitle = cardTitle;
     this._cardImageLink = cardImageLink;
     this._templateSelector = templateSelector;
-    this._imagePopupElement = document.querySelector('.popup_type_image-view');
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -18,28 +16,27 @@ export class Card {
   }
 
   _addContent() {
-    this._element = this._getTemplate();
-    const newAlbumCardImage = this._element.querySelector('.album__image');
-    const newAlbumCardTitle = this._element.querySelector('.album__title');
+    this._cardElement = this._getTemplate();
+    this._cardImageElement = this._cardElement.querySelector('.album__image');
+    this._cardTitleElement = this._cardElement.querySelector('.album__title');
 
-    newAlbumCardTitle.textContent = this._cardTitle;
-    newAlbumCardImage.setAttribute('src', String(this._cardImageLink));
-    newAlbumCardImage.setAttribute('alt', this._cardTitle);
+    this._cardTitleElement.textContent = this._cardTitle;
+    this._cardImageElement.setAttribute('src', this._cardImageLink);
+    this._cardImageElement.setAttribute('alt', this._cardTitle);
   }
 
   _setEventListeners() {
-    const likeButton = this._element.querySelector('.album__like-button');
-    const deleteButton = this._element.querySelector('.album__delete-button');
-    const newAlbumCardImage = this._element.querySelector('.album__image');
+    this._likeButton = this._cardElement.querySelector('.album__like-button');
+    this._deleteButton = this._cardElement.querySelector('.album__delete-button');
 
-    likeButton.addEventListener('click', evt => {
+    this._likeButton.addEventListener('click', evt => {
       evt.target.classList.toggle('album__like-button_active');
     });
-    deleteButton.addEventListener('click', evt => {
+    this._deleteButton.addEventListener('click', evt => {
       evt.target.closest('.album__card').remove();
     });
-    newAlbumCardImage.addEventListener('click', () => {
-      this._displayImagePopup();
+    this._cardImageElement.addEventListener('click', () => {
+      this._handleCardClick(this._cardTitle, this._cardImageLink);
     });
   }
 
@@ -47,21 +44,7 @@ export class Card {
     this._addContent();
     this._setEventListeners();
 
-    return this._element;
-  }
-
-  _renderImagePopup () {
-    const imagePopupContent = this._imagePopupElement.querySelector('.popup__image');
-    const imagePopupContentTitle = this._imagePopupElement.querySelector('.popup__image-title');
-
-    imagePopupContent.setAttribute('src', this._cardImageLink);
-    imagePopupContent.setAttribute('alt', this._cardTitle);
-    imagePopupContentTitle.textContent = this._cardTitle;
-  }
-
-  _displayImagePopup () {
-    this._renderImagePopup();
-    openPopup(this._imagePopupElement);
+    return this._cardElement;
   }
 }
 

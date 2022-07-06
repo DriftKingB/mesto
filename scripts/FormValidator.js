@@ -6,13 +6,26 @@ export class FormValidator {
     this._buttonElement = formElement.querySelector(settingsObject.submitButtonSelector);
   }
 
-  _setValidationListeners() {
-    this._inputList.forEach(input => {
-      input.addEventListener('input', () => {
-        checkInputValidity(this._formElement, input, this._settingsObject);
-        this._toggleButtonState();
-      });
-    });
+  _showInputError (inputElement, errorMessage) {
+    const errorElement = this._formElement.querySelector(`${this._settingsObject.errorClass}` + `${inputElement.id}`);
+
+    inputElement.classList.add(this._settingsObject.inputErrorClass);
+    errorElement.textContent = errorMessage;
+  }
+
+  _hideInputError (inputElement) {
+    const errorElement = this._formElement.querySelector(`${this._settingsObject.errorClass}` + `${inputElement.id}`);
+
+    inputElement.classList.remove(this._settingsObject.inputErrorClass);
+    errorElement.textContent = '';
+  }
+
+  _checkInputValidity(inputElement) {
+    if (!inputElement.validity.valid) {
+      this._showInputError(inputElement, inputElement.validationMessage);
+    } else {
+      this._hideInputError(inputElement);
+    }
   }
 
   _hasInvalidInput() {
@@ -31,28 +44,25 @@ export class FormValidator {
     }
   }
 
+  _setValidationListeners() {
+    this._inputList.forEach(input => {
+      input.addEventListener('input', () => {
+        this._checkInputValidity(input);
+        this._toggleButtonState();
+      });
+    });
+  }
+
+  resetValidation() {
+    this._inputList.forEach(input => {
+      this._hideInputError(input);
+    });
+    this._toggleButtonState();
+  }
+
   enableValidation() {
     this._setValidationListeners();
   }
 }
 
-function showInputError (formElement, inputElement, errorMessage, settingsObject) {
-  const errorElement = formElement.querySelector(`${settingsObject.errorClass}` + `${inputElement.id}`);
-  inputElement.classList.add(settingsObject.inputErrorClass);
-  errorElement.textContent = errorMessage;
-}
-
-export function hideInputError (formElement, inputElement, settingsObject) {
-  const errorElement = formElement.querySelector(`${settingsObject.errorClass}` + `${inputElement.id}`);
-  inputElement.classList.remove(settingsObject.inputErrorClass);
-  errorElement.textContent = '';
-}
-
-function checkInputValidity(formElement, inputElement, settingsObject) {
-  if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage, settingsObject);
-  } else {
-    hideInputError(formElement, inputElement, settingsObject);
-  }
-}
 
