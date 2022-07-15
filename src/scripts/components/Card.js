@@ -19,6 +19,8 @@ export class Card {
     this._cardElement = this._getTemplate();
     this._cardImageElement = this._cardElement.querySelector('.album__image');
     this._cardTitleElement = this._cardElement.querySelector('.album__title');
+    this._likeButton = this._cardElement.querySelector('.album__like-button');
+    this._deleteButton = this._cardElement.querySelector('.album__delete-button');
 
     this._cardTitleElement.textContent = this._cardTitle;
     this._cardImageElement.setAttribute('src', this._cardImageLink);
@@ -26,9 +28,6 @@ export class Card {
   }
 
   _setEventListeners() {
-    this._likeButton = this._cardElement.querySelector('.album__like-button');
-    this._deleteButton = this._cardElement.querySelector('.album__delete-button');
-
     this._likeButton.addEventListener('click', evt => {
       evt.target.classList.toggle('album__like-button_active');
     });

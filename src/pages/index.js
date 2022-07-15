@@ -1,4 +1,4 @@
-import '../pages/index.css'
+import './index.css'
 
 import {
   defaultCards,
@@ -12,28 +12,28 @@ import {
   cardPopupSelector,
   userNameSelector,
   userAboutSelector
- } from "./constants/constants.js";
+ } from "../scripts/constants/constants.js";
 
-import { Card } from './components/Card.js';
-import { Section } from './components/Section.js';
-import { FormValidator } from "./components/FormValidator.js";
-import { PopupWithForm } from './components/Popup/PopupWithForm.js';
-import { PopupWithImage } from './components/Popup/PopupWithImage.js';
-import { UserInfo } from './components/UserInfo.js';
+import { Card } from '../scripts/components/Card.js';
+import { Section } from '../scripts/components/Section.js';
+import { FormValidator } from "../scripts/components/FormValidator.js";
+import { PopupWithForm } from '../scripts/components/Popup/PopupWithForm.js';
+import { PopupWithImage } from '../scripts/components/Popup/PopupWithImage.js';
+import { UserInfo } from '../scripts/components/UserInfo.js';
 
 
 const profilePopup = new PopupWithForm(
   profilePopupSelector,
   {
     submitCallback: handleProfileFormSubmit,
-    renderer: renderProfilePopup
+    onOpen: updateProfileForm
   });
 
 const cardPopup = new PopupWithForm(
   cardPopupSelector,
   {
     submitCallback: handleCardFormSubmit,
-    renderer: renderCardPopup
+    onOpen: updateCardForm
   });
 
 const imagePopup = new PopupWithImage(imagePopupSelector);
@@ -43,11 +43,28 @@ const userData = new UserInfo({
   userAboutSelector: userAboutSelector
 });
 
+const cardSection = new Section({
+  defaultItems: defaultCards,
+  renderer: (item) => {
+      const newCard = new Card(item.title, item.imageLink, item.templateSelector, handleCardClick);
+      const newCardElement = newCard.generateCard();
+
+      return newCardElement
+    }
+  },
+  cardContainerSelector
+);
+
 const formValidators = {};
 
 
 
 
+
+
+(function setDefaultCards () {
+  cardSection.addItems(cardSection.defaultItemList);
+})();
 
 function setValidation (settings) {
   formList.forEach(formElement => {
@@ -63,64 +80,27 @@ setValidation(settingsForValidation);
 
 
 
-function createCardSection (cardArray) {
-  const cardList = new Section({
-    items: cardArray,
-    renderer: (item) => {
-        const newCard = new Card(item.title, item.imageLink, item.templateSelector, handleCardClick);
-        const newCardElement = newCard.generateCard();
-        cardList.addItem(newCardElement);
-      }
-    },
-    cardContainerSelector
-  )
-
-  return cardList
-}
-
-function addAlbumCards (cardArray) {
-  const cardList = createCardSection(cardArray);
-
-  cardList.renderItems();
-}
-
-addAlbumCards(defaultCards);
-
-
-
-
 function handleCardClick (cardTitle, cardImageLink) {
-  imagePopup.image.setAttribute('src', cardImageLink);
-  imagePopup.image.setAttribute('alt', cardTitle);
-  imagePopup.imageTitle.textContent = cardTitle;
-
-  imagePopup.openPopup();
+  imagePopup.openPopup(cardTitle, cardImageLink);
 }
 
 
 
 
 
-
-function renderProfilePopup () {
+function updateProfileForm () {
   const userInfo = userData.getUserInfo();
-  this._getInputValues();
 
   formValidators['profile-form'].resetValidation();
-  this.inputs['name-input'].value = userInfo['userName'];
-  this.inputs['about-input'].value = userInfo['userAbout'];
+  profilePopup.setInputValues({
+    'name-input': userInfo['userName'],
+    'about-input': userInfo['userAbout']
+   });
 }
 
-
-
-function renderCardPopup () {
-  this.formElement.reset();
+function updateCardForm () {
   formValidators['card-form'].resetValidation();
 }
-
-
-
-
 
 
 
@@ -135,14 +115,12 @@ function handleProfileFormSubmit (evt) {
   profilePopup.closePopup();
 }
 
-
-
 function handleCardFormSubmit (evt) {
   const inputValues = cardPopup._getInputValues();
 
   evt.preventDefault();
 
-  addAlbumCards([{
+  cardSection.addItems([{
       'title': inputValues['title-input'],
       'imageLink': inputValues['link-input'],
       'templateSelector': '#card-template'
@@ -151,6 +129,8 @@ function handleCardFormSubmit (evt) {
 
   cardPopup.closePopup();
 }
+
+
 
 (function setPopupListeners () {
   profilePopup.setEventListeners();
