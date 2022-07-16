@@ -106,7 +106,7 @@ function updateCardForm () {
 
 
 function handleProfileFormSubmit (evt) {
-  const inputValues = profilePopup._getInputValues();
+  const inputValues = profilePopup.getInputValues();
 
   evt.preventDefault();
 
@@ -116,7 +116,7 @@ function handleProfileFormSubmit (evt) {
 }
 
 function handleCardFormSubmit (evt) {
-  const inputValues = cardPopup._getInputValues();
+  const inputValues = cardPopup.getInputValues();
 
   evt.preventDefault();
 
