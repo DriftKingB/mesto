@@ -7,5 +7,4 @@
 * адаптивная верстка,
 * javascript
 
-
 Проект на Github pages: <https://driftkingb.github.io/mesto/index.html>

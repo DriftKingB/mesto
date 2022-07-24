@@ -219,7 +219,7 @@ function handleAvatarFormSubmit (evt) {
 
   avatarPopup.toggleSubmitLoading('Сохранение');
 
-  api.patchUserAvatar(inputValues['link-input'])
+  api.patchUserAvatar(inputValues['avatar-link-input'])
     .then((res) => {
       if (res.ok) {
         return res.json();
