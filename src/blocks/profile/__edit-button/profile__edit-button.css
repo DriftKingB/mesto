@@ -11,6 +11,7 @@
   align-self: center;
   justify-self: end;
   border: 1px white solid;
+  outline: none;
   grid-column: 2;
   transition: opacity 0.3s;
   cursor: pointer;

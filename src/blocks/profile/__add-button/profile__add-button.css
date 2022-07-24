@@ -5,6 +5,7 @@
   height: 50px;
   box-sizing: border-box;
   border: 1px white solid;
+  outline: none;
   background-image: url(../../../images/profile__add-button.svg);
   background-size: 22px 22px;
   background-position: center;

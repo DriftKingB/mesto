@@ -1,11 +1,11 @@
 .album__like-button {
+  margin-top: 2px;
   padding: 0;
   background-color: transparent;
   border: 0;
   width: 22px;
   height: 19px;
   background-image: url(../../../images/album/album__like-button_disabled.svg);
-  align-self: center;
   transition: opacity 0.3s, transform 0.3s;
   cursor: pointer;
 }

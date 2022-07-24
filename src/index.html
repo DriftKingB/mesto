@@ -12,10 +12,12 @@
   </header>
 
   <section class="profile">
-    <div class="profile__avatar"></div>
+    <div class="profile__avatar">
+      <button class="profile__avatar-button"></button>
+    </div>
     <div class="profile__info">
-      <h1 class="profile__name">Жак-Ив Кусто</h1>
-      <p class="profile__subline">Исследователь океана</p>
+      <h1 class="profile__name"></h1>
+      <p class="profile__subline"></p>
       <button class="profile__edit-button" type="button"></button>
     </div>
     <button class="profile__add-button" type="button"></button>
@@ -42,7 +44,13 @@
         </div>
       </fieldset>
       <fieldset class="popup__handlers">
-        <button class="popup__submit-button">Сохранить</button>
+        <button class="popup__submit-button">
+          <span class="popup__submit-button-text">
+            <span class="popup__submit-text">Сохранить</span>
+            <span class="popup__loading-icon"></span>
+          </span>
+        </button>
+        <span class="popup__submit-error"></span>
       </fieldset>
       <button class="popup__close-button" type="button"></button>
     </form>
@@ -62,7 +70,13 @@
         </div>
       </fieldset>
       <fieldset class="popup__handlers">
-        <button class="popup__submit-button">Создать</button>
+        <button class="popup__submit-button">
+          <span class="popup__submit-button-text">
+            <span class="popup__submit-text">Создать</span>
+            <span class="popup__loading-icon"></span>
+          </span>
+        </button>
+        <span class="popup__submit-error"></span>
       </fieldset>
       <button class="popup__close-button" type="button"></button>
     </form>
@@ -76,6 +90,44 @@
     </div>
   </section>
 
+  <section class="popup popup_type_avatar-edit">
+    <form class="popup__container" name="avatar-form">
+      <h2 class="popup__title">Обновить аватар</h2>
+      <fieldset class="popup__input-container">
+        <div class="popup__field">
+          <input class="popup__input popup__input_type_about" id="link-input" type="url" placeholder="Ссылка на картинку" required>
+          <span class="popup__input-error popup__input-error_type_link-input"></span>
+        </div>
+      </fieldset>
+      <fieldset class="popup__handlers">
+        <button class="popup__submit-button">
+          <span class="popup__submit-button-text">
+            <span class="popup__submit-text">Сохранить</span>
+            <span class="popup__loading-icon"></span>
+          </span>
+        </button>
+        <span class="popup__submit-error"></span>
+      </fieldset>
+      <button class="popup__close-button" type="button"></button>
+    </form>
+  </section>
+
+  <section class="popup popup_type_card-delete">
+    <form class="popup__container" name="delete-form">
+      <h2 class="popup__title">Вы уверены?</h2>
+      <fieldset class="popup__handlers">
+        <button class="popup__submit-button">
+          <span class="popup__submit-button-text">
+            <span class="popup__submit-text">Да</span>
+            <span class="popup__loading-icon"></span>
+          </span>
+        </button>
+        <span class="popup__submit-error"></span>
+      </fieldset>
+      <button class="popup__close-button" type="button"></button>
+    </form>
+  </section>
+
   <template id="card-template">
     <article class="album__card">
       <div class="album__image-container">
@@ -83,7 +135,11 @@
       </div>
       <div class="album__tab">
         <h2 class="album__title"></h2>
-        <button class="album__like-button" type="button"></button>
+        <div class="album__likes">
+          <button class="album__like-button" type="button"></button>
+          <div class="album__loading-icon"></div>
+          <span class="album__likes-number"></span>
+        </div>
       </div>
       <button class="album__delete-button"></button>
     </article>

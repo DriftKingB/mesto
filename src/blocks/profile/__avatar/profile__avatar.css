@@ -1,8 +1,9 @@
 .profile__avatar {
+  position: relative;
   width: 120px;
   height: 120px;
-  background-image: url(../../../images/profile__avatar.svg);
   background-size: cover;
+  background-position: center;
   border-radius: 60px;
   margin-right: 30px;
 }

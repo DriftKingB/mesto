@@ -2,6 +2,7 @@
   padding: 0;
   background-color: transparent;
   border: 0;
+  outline: none;
   background-image: url(../../../images/album/album__delete-button.svg);
   height: 18px;
   width: 19px;

@@ -44,4 +44,18 @@ export class PopupWithForm extends Popup {
 
     this.formElement.reset();
   }
+
+  toggleSubmitLoading(textContent) {
+    const submitTextElement = this.formElement.querySelector('.popup__submit-text');
+    const ellipsisElement = this.formElement.querySelector('.popup__loading-icon');
+
+    ellipsisElement.classList.toggle('popup__loading-icon_active');
+    submitTextElement.textContent = textContent;
+  }
+
+  returnErrorMessage(errorMessage) {
+    const submitErrorElement = this.formElement.querySelector('.popup__submit-error');
+
+    submitErrorElement.textContent = errorMessage;
+  }
 }

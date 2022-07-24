@@ -1,13 +1,9 @@
 .popup__handlers {
+  position: relative;
   margin: 0;
   padding: 0;
-  margin-top: 48px;
+  margin-top: 38px;
   width: 100%;
   border: none;
 }
 
-@media (max-width: 1280px) {
-  .popup__handlers {
-    margin-top: calc((5vw + 704px)/16);
-  }
-}

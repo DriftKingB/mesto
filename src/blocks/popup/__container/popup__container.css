@@ -1,6 +1,5 @@
 .popup__container {
   width: 430px;
-  height: 330px;
   background-color: #fff;
   position: absolute;
   top: calc(50vh - 165px);
@@ -15,7 +14,6 @@
 
 @media (max-width: 1280px) {
   .popup__container {
-    height: calc((5vw + 1916px)/6);
     width: calc((185vw + 2792px)/12);
     top: calc((600vh - 5vw - 1916px)/12);
     left: calc((1015vw - 2792px)/24);

@@ -1,0 +1,19 @@
+.popup__loading-icon {
+  display: none;
+}
+
+.popup__loading-icon:after {
+  position: absolute;
+  bottom: -1px;
+  left: 100%;
+  overflow: hidden;
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "\2026";
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 20px;
+  }
+}
