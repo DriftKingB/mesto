@@ -2,12 +2,8 @@
 @import url(../vendor/fonts/fonts.css);
 @import url(../blocks/root/root.css);
 
-
-
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
-
-
 
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
@@ -18,27 +14,24 @@
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 
-
-
 @import url(../blocks/album/album.css);
-@import url(../blocks/album/__card/album__card.css);
-@import url(../blocks/album/__image-container/album__image-container.css);
-@import url(../blocks/album/__image/album__image.css);
-@import url(../blocks/album/__delete-button/album__delete-button.css);
-@import url(../blocks/album/__tab/album__tab.css);
-@import url(../blocks/album/__title/album__title.css);
-@import url(../blocks/album/__likes/album__likes.css);
-@import url(../blocks/album/__likes-number/album__likes-number.css);
-@import url(../blocks/album/__likes-number/_inactive/album__likes-number_inactive.css);
-@import url(../blocks/album/__loading-icon/album__loading-icon.css);
-@import url(../blocks/album/__loading-icon/_active/album__loading-icon_active.css);
-@import url(../blocks/album/__like-button/album__like-button.css);
-@import url(../blocks/album/__like-button/_active/album__like-button_active.css);
-
-
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
+
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__image-container/card__image-container.css);
+@import url(../blocks/card/__image/card__image.css);
+@import url(../blocks/card/__tab/card__tab.css);
+@import url(../blocks/card/__title/card__title.css);
+@import url(../blocks/card/__likes/card__likes.css);
+@import url(../blocks/card/__like-button/card__like-button.css);
+@import url(../blocks/card/__like-button/_active/card__like-button_active.css);
+@import url(../blocks/card/__loading-icon/card__loading-icon.css);
+@import url(../blocks/card/__loading-icon/_active/card__loading-icon_active.css);
+@import url(../blocks/card/__likes-number/card__likes-number.css);
+@import url(../blocks/card/__likes-number/_inactive/card__likes-number_inactive.css);
+@import url(../blocks/card/__delete-button/card__delete-button.css);
 
 
 
@@ -74,8 +67,6 @@
 @import url(../blocks/popup/__loading-icon/popup__loading-icon.css);
 @import url(../blocks/popup/__loading-icon/_active/popup__loading-icon_active.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
-
-
 
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__image-container/popup__image-container.css);
