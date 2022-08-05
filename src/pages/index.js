@@ -90,20 +90,18 @@ const formValidators = {};
 
 
 
-(function renderPage () {
-  Promise.all([
-    api.getUserInfo(),
-    api.getCohortCards()
-  ])
-    .then(res => Promise.all(res))
-    .then(data => {
-      userData.id = data[0]._id;
-      userData.setUserInfo(data[0].name, data[0].about);
-      userData.setUserAvatar(data[0].avatar);
-      cardSection.renderItems(data[1].slice().reverse());
-     })
-     .catch(err => console.log(err));
-})();
+Promise.all([
+  api.getUserInfo(),
+  api.getCohortCards()
+])
+  .then(res => Promise.all(res))
+  .then(([userInfo, cards]) => {
+    userData.id = userInfo._id;
+    userData.setUserInfo(userInfo.name, userInfo.about);
+    userData.setUserAvatar(userInfo.avatar);
+    cardSection.renderItems(cards.slice().reverse());
+   })
+  .catch(err => console.log(err));
 
 function setValidation (settings) {
   formList.forEach(formElement => {
@@ -129,30 +127,27 @@ function createNewCard (cardInfo) {
 }
 
 
+
+
 function handleCardClick (card) {
   imagePopup.openPopup(card.cardTitle, card.cardImageLink);
 }
 
 function handleCardRemoval (card, evt) {
-  deletePopup.card = card;
   card.cardElement = evt.target.closest('.card');
+  deletePopup.card = card;
 
   deletePopup.openPopup();
 }
 
 function handleCardLike(card) {
+  const request = (!card.likedByUser) ? api.putCardLike(card.id) : api.removeCardLike(card.id);
+
   card.toggleLikesLoad();
-  if (!card.likedByUser) {
-    api.putCardLike(card.id)
-      .then(data => card.setLikes(data.likes))
-      .catch(err => console.log(err))
-      .finally(() => card.toggleLikesLoad());
-  } else {
-    api.removeCardLike(card.id)
-      .then(data => card.setLikes(data.likes))
-      .catch(err => console.log(err))
-      .finally(() => card.toggleLikesLoad());
-  }
+  request
+    .then(data => card.setLikes(data.likes))
+    .catch(err => console.log(err))
+    .finally(() => card.toggleLikesLoad());
 }
 
 

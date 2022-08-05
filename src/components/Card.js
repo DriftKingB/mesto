@@ -9,7 +9,7 @@ export class Card {
     this._handleCardLike = handlers.like;
     this._templateSelector = templateSelector;
     this._madeByUser = (owner._id === userId) ? true : false;
-    this.likedByUser = (likes.some(user => user._id === userId)) ? true : false;
+    this._userId = userId;
   }
 
   _getTemplate() {
@@ -33,11 +33,7 @@ export class Card {
     this.cardTitleElement.textContent = this.cardTitle;
     this._cardImageElement.setAttribute('src', this.cardImageLink);
     this._cardImageElement.setAttribute('alt', this.cardTitle);
-    this._likesElement.textContent = this._likes.length;
-
-    if (this.likedByUser) {
-      this._likeButton.classList.toggle('card__like-button_active');
-    }
+    this.setLikes(this._likes);
 
     if (!this._madeByUser) {
       this._deleteButton.remove();
@@ -57,15 +53,19 @@ export class Card {
     });
   }
 
-  _toggleLikeState() {
-    this.likedByUser = !this.likedByUser;
-    this._likeButton.classList.toggle('card__like-button_active');
+  _toggleLikeState(likedByUser) {
+    if (likedByUser) {
+      this._likeButton.classList.add('card__like-button_active');
+    } else {
+      this._likeButton.classList.remove('card__like-button_active');
+    }
   }
 
   setLikes(likesList) {
+    this.likedByUser = (likesList.some(user => user._id === this._userId)) ? true : false;
     this._likes = likesList;
     this._likesElement.textContent = likesList.length;
-    this._toggleLikeState();
+    this._toggleLikeState(this.likedByUser);
   }
 
   toggleLikesLoad() {
@@ -76,14 +76,13 @@ export class Card {
   generateCard() {
     this._addContent();
     this._setEventListeners();
+    this._toggleLikeState(this.likedByUser);
 
     return this._cardElement;
   }
 
   removeCard() {
     this.cardElement.remove();
-    this.cardElement = undefined;
+    this.cardElement = null;
   }
 }
-
-

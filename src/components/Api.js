@@ -4,11 +4,10 @@ export class Api {
     this._headers = headers;
   }
 
-  checkResponse(res) {
-    if (res.ok) {
-      return Promise.resolve(res.json());
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
+  _checkResponse(res) {
+    const checkedPromise = (res.ok) ? Promise.resolve(res.json()) : Promise.reject(`Ошибка: ${res.status}`);
+
+    return checkedPromise
   }
 
   getCohortCards() {
@@ -16,7 +15,7 @@ export class Api {
         method: 'GET',
         headers: this._headers
     })
-      .then(res => this.checkResponse(res));
+      .then(this._checkResponse);
   }
 
   postSectionItem(item) {
@@ -28,7 +27,7 @@ export class Api {
         link: item.link
       })
     })
-      .then(res => this.checkResponse(res));
+      .then(this._checkResponse);
   }
 
   deleteCard(cardId) {
@@ -36,7 +35,7 @@ export class Api {
       method: 'DELETE',
       headers: this._headers
     })
-      .then(res => this.checkResponse(res));
+      .then(this._checkResponse);
   }
 
   removeCardLike(cardId) {
@@ -44,7 +43,7 @@ export class Api {
       method: 'DELETE',
       headers: this._headers
     })
-      .then(res => this.checkResponse(res));
+      .then(this._checkResponse);
   }
 
   putCardLike(cardId) {
@@ -52,7 +51,7 @@ export class Api {
       method: 'PUT',
       headers: this._headers
     })
-      .then(res => this.checkResponse(res));
+      .then(this._checkResponse);
   }
 
   getUserInfo() {
@@ -60,7 +59,7 @@ export class Api {
       method: 'GET',
       headers: this._headers
     })
-      .then(res => this.checkResponse(res));
+      .then(this._checkResponse);
   }
 
   patchUserInfo(userName, userAbout) {
@@ -72,7 +71,7 @@ export class Api {
         about: userAbout
       })
     })
-      .then(res => this.checkResponse(res));
+      .then(this._checkResponse);
   }
 
   patchUserAvatar(avatarLink) {
@@ -83,6 +82,6 @@ export class Api {
         avatar: avatarLink
       })
     })
-      .then(res => this.checkResponse(res));
+      .then(this._checkResponse);
   }
 }
