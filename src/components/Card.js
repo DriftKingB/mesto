@@ -53,19 +53,23 @@ export class Card {
     });
   }
 
-  _toggleLikeState(likedByUser) {
-    if (likedByUser) {
+  _toggleLikeState() {
+    if (this.likedByUser) {
       this._likeButton.classList.add('card__like-button_active');
     } else {
       this._likeButton.classList.remove('card__like-button_active');
     }
   }
 
+  _likedByUser() {
+    return this._likes.some(user => user._id === this._userId);
+  }
+
   setLikes(likesList) {
-    this.likedByUser = (likesList.some(user => user._id === this._userId)) ? true : false;
     this._likes = likesList;
+    this.likedByUser = this._likedByUser();
     this._likesElement.textContent = likesList.length;
-    this._toggleLikeState(this.likedByUser);
+    this._toggleLikeState();
   }
 
   toggleLikesLoad() {

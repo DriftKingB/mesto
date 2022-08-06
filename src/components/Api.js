@@ -5,9 +5,7 @@ export class Api {
   }
 
   _checkResponse(res) {
-    const checkedPromise = (res.ok) ? Promise.resolve(res.json()) : Promise.reject(`Ошибка: ${res.status}`);
-
-    return checkedPromise
+    return (res.ok) ? Promise.resolve(res.json()) : Promise.reject(`Ошибка: ${res.status}`)
   }
 
   getCohortCards() {
